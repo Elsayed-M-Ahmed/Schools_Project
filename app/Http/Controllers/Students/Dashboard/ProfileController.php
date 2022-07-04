@@ -70,7 +70,7 @@ class ProfileController extends Controller
             $teacher_information = Student::findOrFail($id);
 
             $teacher_information->name = ['en' => $request->Name_en, 'ar' => $request->Name_ar];
-            $teacher_information->password = md5($request->password);
+            $teacher_information->password = Hash::make($request->password);
             $teacher_information->save();
 
             toastr()->success(trans('message.success'));
@@ -93,7 +93,7 @@ class ProfileController extends Controller
 
         $student_information = Student::findOrFail($id);
         // return $student_information->password .  ',,,,' .md5($request->password);
-            if (md5($request->password) == $student_information->password) {
+            if (Hash::check($request->password , $student_information->password)) {
                 return view('pages.students.Dashboard.Profile.profile_edit' , compact('student_information'));
                
             }else{

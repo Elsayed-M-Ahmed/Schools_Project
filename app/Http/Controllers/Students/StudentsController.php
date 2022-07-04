@@ -71,7 +71,7 @@ class StudentsController extends Controller
             $students = new Student();
             $students->name = ['en' => $request->name_en, 'ar' => $request->name_ar];
             $students->email = $request->email;
-            $students->password = md5($request->password);
+            $students->password = Hash::make($request->password);
             $students->gender_id = $request->gender_id;
             $students->nationalitie_id = $request->nationalitie_id;
             $students->blood_id = $request->blood_id;
@@ -177,7 +177,7 @@ class StudentsController extends Controller
             $Edit_Students = Student::findorfail($request->id);
             $Edit_Students->name = ['ar' => $request->name_ar, 'en' => $request->name_en];
             $Edit_Students->email = $request->email;
-            $Edit_Students->password = md5($request->password);
+            $Edit_Students->password = Hash::make($request->password);
             $Edit_Students->gender_id = $request->gender_id;
             $Edit_Students->nationalitie_id = $request->nationalitie_id;
             $Edit_Students->blood_id = $request->blood_id;

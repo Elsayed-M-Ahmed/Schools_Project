@@ -20,7 +20,7 @@
             <tr>
                 <?php $i++; ?>
                 <td>{{ $i }}</td>
-                <td>{{ $Parent->Email }}</td>
+                <td>{{ $Parent->email }}</td>
                 <td>{{ $Parent->Name_Father }}</td>
                 <td>{{ $Parent->National_ID_Father }}</td>
                 <td>{{ $Parent->Passport_ID_Father }}</td>

@@ -20,7 +20,7 @@ class Student extends Authenticatable
     {
         return $this->belongsTo('App\Models\Gender', 'gender_id');
     }
-
+    
     // علاقة بين الطلاب والمراحل الدراسية لجلب اسم المرحلة في جدول الطلاب
 
     public function grade()
