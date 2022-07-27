@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('quizzes.store')}}" method="post" autocomplete="off">
+                            <form action="{{route('teacher_quizzes.store')}}" method="post" autocomplete="off">
                                 @csrf
 
                                 <div class="form-row">
@@ -42,6 +42,11 @@
                                     <div class="col">
                                         <label for="title">اسم الاختبار باللغة الانجليزية</label>
                                         <input type="text" name="Name_en" class="form-control">
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="title">عدد اسئله الاختبار</label>
+                                        <input type="text" name="question_num" class="form-control">
                                     </div>
                                 </div>
                                 <br>

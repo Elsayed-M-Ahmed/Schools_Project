@@ -16,17 +16,22 @@ class QuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
 
-    }
-
-    public function get_qustions($id)
+    public function get_questions($id)
     {
-        // return $id;
-        $questions = Question::findorfail($id)->get();
+        //  return 'true';
+        $questions = Question::where('quizze_id' ,$id)->get();
         return view('pages.Questions.index', compact('questions'));
     }
+
+
+    public function index()
+    {
+        $questions = Question::get();
+        return view('pages.Questions.index', compact('questions'));
+    }
+
+    
 
 
 
@@ -57,8 +62,18 @@ class QuestionController extends Controller
             'quizze_id' => $request->quizze_id ,
             'score' => $request->score,
         ]);
-        toastr()->success(trans('message.success'));
-            return redirect()->route('Quizzes.index');
+
+        $questions_count = Question::where('quizze_id' , $request->quizze_id)->count();
+
+        $questions_num = Quizze::where('id' , $request->quizze_id)->value('question_num');
+
+        if ($questions_count < $questions_num) {
+            return redirect()->route('questions.show' , $request->quizze_id);
+        }else{
+            toastr()->success(trans('message.success'));
+            return redirect()->url('questions.get_qustions' , $request->quizze_id);
+        }
+       
         } catch (\Exception $e) {
             return redirect()->route('Quizzes.index')->with(['error' => $e->getMessage()]);
         }

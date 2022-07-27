@@ -29,7 +29,7 @@ Route::group(
             Route::post('attendance.Search' , 'ParentController@attendanceSearch')->name('attendance.search');
             Route::post('parent_profile_confirm/{id}' , 'ParentController@edit')->name('parent_profile_confirm');
             Route::post('parent_profile_update/{id}' , 'ParentController@update')->name('parent_profile_update');
-            
+            Route::get('sons_exams_results' , 'ParentController@sons_exams_results')->name('sons_exams_results');
         });
 
 

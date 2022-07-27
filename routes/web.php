@@ -109,7 +109,7 @@ Route::group(
         Route::group(['namespace' => 'questions'], function () {
             Route::resource('questions', 'QuestionController');
             // Route::get('/questions/index/{id}', [QuestionController::class, 'index'])->name('index');
-            Route::get('/get_qustions/{id}', 'QuestionController@get_qustions');
+            Route::get('/get_questions/{id}', 'QuestionController@get_questions')->name('get_questions');
         });
 
         Route::group(['namespace' => 'Setting'], function () {

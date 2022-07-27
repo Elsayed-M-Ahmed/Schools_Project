@@ -44,6 +44,11 @@
                                         <label for="title">اسم الاختبار باللغة الانجليزية</label>
                                         <input type="text" name="Name_en" class="form-control">
                                     </div>
+
+                                    <div class="col">
+                                        <label for="title">عدد اسئله الاختبار</label>
+                                        <input type="text" name="question_num" class="form-control">
+                                    </div>
                                 </div>
                                 <br>
 

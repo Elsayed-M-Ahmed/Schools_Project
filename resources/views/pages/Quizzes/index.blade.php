@@ -56,7 +56,7 @@
                                                         class="btn btn-info btn-sm" role="button" aria-pressed="true"  title="اضافه اسئله"><i
                                                                 class="fa fa-edit"></i></a>
 
-                                                    <a href="get_qustions/{{ $quizze->id }}"
+                                                    <a href="get_questions/{{ $quizze->id }}"
                                                     class="btn btn-info btn-sm" role="button" aria-pressed="true"  title="عرض اسئله"><i
                                                             class="fa fa-show"></i></a>                 
                                                     <button type="button" class="btn btn-danger btn-sm"

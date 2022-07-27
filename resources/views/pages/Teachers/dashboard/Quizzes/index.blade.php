@@ -21,7 +21,7 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('quizzes.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('teacher_quizzes.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">اضافة اختبار جديد</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -35,6 +35,7 @@
                                             <th>المرحلة الدراسية</th>
                                             <th>الصف الدراسي</th>
                                             <th>القسم</th>
+                                            <th>عدد الاسئله</th>
                                             <th>العمليات</th>
                                         </tr>
                                         </thead>
@@ -47,15 +48,16 @@
                                                 <td>{{$quizze->grade->Name}}</td>
                                                 <td>{{$quizze->classroom->classroom_name}}</td>
                                                 <td>{{$quizze->section->Name_Section}}</td>
+                                                <td>{{$quizze->question_num}}</td>
                                                 <td>
-                                                    <a href="{{route('quizzes.edit',$quizze->id)}}"
+                                                    <a href="{{route('teacher_quizzes.edit',$quizze->id)}}"
                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"
                                                             data-target="#delete_exam{{ $quizze->id }}" title="حذف"><i
                                                             class="fa fa-trash"></i></button>
-                                                    <a href="{{route('quizzes.show',$quizze->id)}}"
+                                                    <a href="{{route('teacher_questions.show',$quizze->id)}}"
                                                         class="btn btn-warning btn-sm" title="اضافه الاسئله" role="button" aria-pressed="true"><i
                                                                 class="fa fa-binoculars"></i></a>
                                                 </td>
@@ -64,7 +66,7 @@
                                             <div class="modal fade" id="delete_exam{{$quizze->id}}" tabindex="-1"
                                                  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">
-                                                    <form action="{{route('quizzes.destroy',$quizze->id)}}" method="post">
+                                                    <form action="{{route('teacher_quizzes.destroy',$quizze->id)}}" method="post">
                                                         {{method_field('delete')}}
                                                         {{csrf_field()}}
                                                         <div class="modal-content">

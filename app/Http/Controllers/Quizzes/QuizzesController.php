@@ -58,7 +58,9 @@ class QuizzesController extends Controller
             $quizzes->classroom_id = $request->Classroom_id;
             $quizzes->section_id = $request->section_id;
             $quizzes->teacher_id = $request->teacher_id;
+            $quizzes->question_num = $request->question_num;
             $quizzes->save();
+
             toastr()->success(trans('message.success'));
             return redirect()->route('Quizzes.create');
         }
@@ -110,6 +112,7 @@ class QuizzesController extends Controller
             $quizz->classroom_id = $request->Classroom_id;
             $quizz->section_id = $request->section_id;
             $quizz->teacher_id = $request->teacher_id;
+            $quizzes->question_num = $request->question_num;
             $quizz->save();
             toastr()->success(trans('message.Update'));
             return redirect()->route('Quizzes.index');

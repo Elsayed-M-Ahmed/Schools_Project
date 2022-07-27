@@ -57,10 +57,11 @@ class QuizzController extends Controller
             $quizzes->grade_id = $request->Grade_id;
             $quizzes->classroom_id = $request->Classroom_id;
             $quizzes->section_id = $request->section_id;
+            $quizzes->question_num = $request->question_num;
             $quizzes->teacher_id = auth()->user()->id;
             $quizzes->save();
             toastr()->success(trans('message.success'));
-            return redirect()->route('quizzes.index');
+            return redirect()->route('teacher_quizzes.index');
         }
         catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -115,10 +116,11 @@ class QuizzController extends Controller
             $quizzes->grade_id = $request->Grade_id;
             $quizzes->classroom_id = $request->Classroom_id;
             $quizzes->section_id = $request->section_id;
+            $quizzes->question_num = $request->question_num;
             $quizzes->teacher_id = auth()->user()->id;
             $quizzes->save();
             toastr()->success(trans('message.success'));
-            return redirect()->route('quizzes.index');
+            return redirect()->route('teacher_quizzes.index');
         }
         catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);

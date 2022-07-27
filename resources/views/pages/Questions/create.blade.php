@@ -61,7 +61,7 @@
                                 <br>
 
                                 <div class="form-row">
-                                    <input type="text" value="{{ $quizze->id }}" name="quizze_id">
+                                    <input type="hidden" value="{{ $quizze->id }}" name="quizze_id">
                                     <div class="col-6">
                                         <div class="form-group">
                                             <label for="Grade_id">الدرجة : <span class="text-danger">*</span></label>

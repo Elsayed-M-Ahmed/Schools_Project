@@ -19,7 +19,7 @@
                     class="right-nav-text">الامتحانات</span></a>
         </li>
 
-        <!-- الامتحانات-->
+        <!-- الحصص الاونلاين-->
         <li>
             <a href="{{route('student_online_class.index')}}"><i class="fas fa-book-open"></i><span
                     class="right-nav-text">الحصص الاونلاين</span></a>

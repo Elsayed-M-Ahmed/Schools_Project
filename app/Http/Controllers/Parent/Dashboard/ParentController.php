@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\Parents;
 use App\Models\Attendance;
+use App\Models\Quizze;
+use App\Models\Degree;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -145,6 +147,18 @@ class ParentController extends Controller
         }
     }
 
+    public function sons_exams_results () {
+        // return "true";
+
+        $data['sons_id'] = Student::where('parent_id' , auth()->user()->id)->value('id');
+        $data['sons_data'] = Student::where('parent_id' , auth()->user()->id)->get();
+        $data['sons_section_id'] = Student::where('parent_id' , auth()->user()->id)->value('section_id');
+        $data['quizze_id'] = Quizze::where('section_id' , $data['sons_section_id'])->value('id');
+        $data['quizze_name'] = Quizze::where('section_id' , $data['sons_section_id'])->value('name');
+        $data['sons_degree'] = Degree::where('quizze_id' , $data['quizze_id'] && 'student_id' , $data['sons_id'])->value('score');
+        return view('pages.Parents.Dashboard.exams_results.view_exams_results' , $data);
+    }
+ 
     /**
      * Remove the specified resource from storage.
      *

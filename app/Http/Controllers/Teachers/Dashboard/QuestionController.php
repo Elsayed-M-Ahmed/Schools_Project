@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teachers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Quizze;
 
 class QuestionController extends Controller
 {
@@ -46,8 +47,19 @@ class QuestionController extends Controller
             $question->score = $request->score;
             $question->quizze_id = $request->quizz_id;
             $question->save();
-            toastr()->success(trans('message.success'));
-            return redirect()->route('quizzes.show' , $request->quizz_id);
+
+            $questions_count = Question::where('quizze_id' , $request->quizz_id)->count();
+
+            $questions_num = Quizze::where('id' , $request->quizz_id)->value('question_num');
+
+            if ($questions_count < $questions_num) {
+                return redirect()->route('teacher_questions.show' , $request->quizz_id);
+            }else{
+                toastr()->success(trans('message.success'));
+                return redirect()->route('teacher_quizzes.show' , $request->quizz_id);
+            }
+            
+            // return redirect()->route('teacher_questions.show' , $request->quizz_id);
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }
@@ -99,7 +111,7 @@ class QuestionController extends Controller
             $question->score = $request->score;
             $question->save();
             toastr()->success(trans('message.success'));
-            return redirect()->route('quizzes.show' , $question->quizze_id);
+            return redirect()->route('teacher_questions.show' , $question->quizze_id);
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
         }

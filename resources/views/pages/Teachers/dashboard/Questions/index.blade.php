@@ -21,7 +21,7 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('questions.show',$quizz->id)}}" class="btn btn-success btn-sm" role="button" aria-pressed="true">اضافة سؤال جديد</a><br><br>
+                                <a href="{{route('teacher_questions.show',$quizz->id)}}" class="btn btn-success btn-sm" role="button" aria-pressed="true">اضافة سؤال جديد</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
                                            data-page-length="50"

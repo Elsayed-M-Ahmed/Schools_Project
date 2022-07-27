@@ -30,7 +30,7 @@
                     <div class="col-xs-12">
                         <div class="col-md-12">
                             <br>
-                            <form action="{{route('quizzes.update','test')}}" method="post">
+                            <form action="{{route('teacher_quizzes.update','test')}}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-row">
@@ -44,6 +44,11 @@
                                     <div class="col">
                                         <label for="title">اسم الاختبار باللغة الانجليزية</label>
                                         <input type="text" name="Name_en" value="{{$quizz->getTranslation('name','en')}}" class="form-control">
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="title">عدد اسئله الاختبار</label>
+                                        <input type="text" name="question_num" value="{{$quizz->question_num}}" class="form-control">
                                     </div>
                                 </div>
                                 <br>

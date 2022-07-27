@@ -34,6 +34,7 @@
                                             <th>المرحلة الدراسية</th>
                                             <th>الصف الدراسي</th>
                                             <th>القسم</th>
+                                            <th>دخول / درجة الاختبار</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -45,6 +46,20 @@
                                                 <td>{{$quizze->grade->Name}}</td>
                                                 <td>{{$quizze->classroom->classroom_name}}</td>
                                                 <td>{{$quizze->section->Name_Section}}</td>
+                                                <td>
+
+
+                                                    @if($quizze->degree->count() > 0 && $quizze->id == $quizze->degree[0]->quizze_id)
+                                                        {{$quizze->degree[0]->score}}
+                                                    @else
+                                                        <a href="{{route('student_answers.show',$quizze->id)}}"
+                                                           class="btn btn-outline-success btn-sm" role="button"
+                                                           aria-pressed="true" onclick="alertAbuse()">
+                                                            <i class="fas fa-person-booth"></i></a>
+                                                    @endif
+
+   
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </table>

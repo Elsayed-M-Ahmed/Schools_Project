@@ -9,13 +9,14 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5|^8.0",
+        "codezero/laravel-unique-translation": "^3.4",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3.1|^7.0.1",
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
-        "livewire/livewire": "^2.7",
+        "livewire/livewire": "^2.3",
         "macsidigital/laravel-zoom": "^4.1",
         "mcamara/laravel-localization": "^1.6",
         "spatie/laravel-translatable": "^4.6",
@@ -35,7 +36,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "barryvdh/laravel-ide-helper"
+            ]
         }
     },
     "autoload": {

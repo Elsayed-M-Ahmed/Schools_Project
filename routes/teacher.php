@@ -39,8 +39,8 @@ Route::group(
     Route::get('sections','StudentController@sections')->name('sections');
     Route::post('attendance','StudentController@attendance')->name('attendance');
     Route::post('edit_attendance','StudentController@editAttendance')->name('attendance.edit');
-    Route::resource('quizzes' , 'QuizzController');
-    Route::resource('questions' , 'QuestionController');
+    Route::resource('teacher_quizzes' , 'QuizzController');
+    Route::resource('teacher_questions' , 'QuestionController');
     Route::get('attendance_report','StudentController@attendanceReport')->name('attendence.report');
     Route::post('attendance_report','StudentController@attendanceSearch')->name('attendance.search');
     Route::resource('zoom_online_classes' , 'ZoomOnlineClassesController');

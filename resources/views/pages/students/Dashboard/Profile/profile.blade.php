@@ -45,7 +45,7 @@
                                         <p class="text-muted mb-0">
                                             <input type="text" name="Name_ar"
                                                    value="{{ $student_information->getTranslation('name', 'ar') }}"
-                                                   class="form-control">
+                                                   class="form-control" disabled>
                                         </p>
                                     </div>
                                 </div>
@@ -58,7 +58,7 @@
                                         <p class="text-muted mb-0">
                                             <input type="text" name="Name_en"
                                                    value="{{ $student_information->getTranslation('name', 'en') }}"
-                                                   class="form-control">
+                                                   class="form-control" disabled>
                                         </p>
                                     </div>
                                 </div>
